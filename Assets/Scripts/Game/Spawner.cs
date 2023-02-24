@@ -9,7 +9,9 @@ namespace DefaultNamespace.Game
     {
         Coin,
         Heart,
-        Bomb
+        Bomb,
+        MaxHealth,
+        Protection
     }
 
     public class Spawner : MonoBehaviour
@@ -17,6 +19,8 @@ namespace DefaultNamespace.Game
         [SerializeField] private Coin coinTemplate;
         [SerializeField] private Heart heartTemplate;
         [SerializeField] private Bomb bombTemplate;
+        [SerializeField] private MaxHealth maxHealth;
+        [SerializeField] private Protection protection;
 
         [SerializeField] private Transform container;
 
@@ -35,6 +39,12 @@ namespace DefaultNamespace.Game
                     break;
                 case SpawnType.Bomb:
                     Spawn(bombTemplate);
+                    break;
+                case SpawnType.MaxHealth:
+                    Spawn(maxHealth);
+                    break;
+                case SpawnType.Protection:
+                    Spawn(protection);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(spawnType), spawnType, null);

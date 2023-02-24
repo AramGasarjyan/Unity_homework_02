@@ -26,13 +26,21 @@ namespace DefaultNamespace.Game
             switch (item)
             {
                 case Bomb bomb:
-                    playerHealth.Change(bomb.DamageAmount);
+                    if(!playerHealth.protectionActiveOnPLayer)
+                        playerHealth.Change(bomb.DamageAmount);
                     break;
                 case Coin coin:
                     playerBank.Add(coin.Value);
                     break;
                 case Heart heart:
                     playerHealth.Change(heart.Value);
+                    break;
+                case MaxHealth maxHealth:
+                    //playerHealth.SetDefaultHealth();
+                    playerHealth.Change(maxHealth.GetValue(playerHealth));
+                    break;
+                case Protection protection:
+                    protection.ProtectionActiveOnPlayer(playerHealth, true);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(item));

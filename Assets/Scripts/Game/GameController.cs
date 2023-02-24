@@ -34,22 +34,39 @@ namespace DefaultNamespace.Game
              */
 
             float randomValue = Random.value;
-            if (randomValue >= 0f && randomValue <= 0.42f)
+            bool somethingSpawned = false;
+            while (!somethingSpawned)
             {
-                spawner.Spawn(SpawnType.Coin);
-            }
-            else if (randomValue >= 0.5f && randomValue <= 0.7f)
-            {
-                spawner.Spawn(SpawnType.Bomb);
-            }
-            else if (randomValue >= 0.75f && randomValue <= 1f)
-            {
-                spawner.Spawn(SpawnType.Heart);
-            }
-            else
-            {
-                //Nothing to spawn
-                Debug.Log("Nothing to spawn");
+                if (randomValue >= 0f && randomValue <= 0.22f)
+                {
+                    somethingSpawned = true;
+                    spawner.Spawn(SpawnType.Bomb);
+                }
+                else if (randomValue >= 0.4f && randomValue <= 0.5f)
+                {
+                    somethingSpawned = true;
+                    spawner.Spawn(SpawnType.Bomb);
+                }
+                else if (randomValue >= 0.65f && randomValue <= 0.75f)
+                {
+                    somethingSpawned = true;
+                    spawner.Spawn(SpawnType.Protection);
+                }
+                else if (randomValue >= 0.80f && randomValue <= 90f)
+                {
+                    somethingSpawned = true;
+                    spawner.Spawn(SpawnType.Protection);
+                }
+                else if (randomValue >= 0.93f && randomValue <= 1f)
+                {
+                    somethingSpawned = true;
+                    spawner.Spawn(SpawnType.Protection);
+                }
+                else
+                {
+                    //Nothing to spawn
+                    Debug.Log("Nothing to spawn");
+                }
             }
         }
     }
