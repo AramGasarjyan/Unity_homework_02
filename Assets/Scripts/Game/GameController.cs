@@ -33,29 +33,29 @@ namespace DefaultNamespace.Game
              * Heart -> [0.75, 1]
              */
 
-            float randomValue = Random.value;
             bool somethingSpawned = false;
             while (!somethingSpawned)
             {
+                float randomValue = Random.value;
                 if (randomValue >= 0f && randomValue <= 0.22f)
                 {
                     somethingSpawned = true;
-                    spawner.Spawn(SpawnType.Bomb);
+                    spawner.Spawn(SpawnType.Coin);
                 }
                 else if (randomValue >= 0.4f && randomValue <= 0.5f)
                 {
                     somethingSpawned = true;
-                    spawner.Spawn(SpawnType.Bomb);
+                    spawner.Spawn(SpawnType.Heart);
                 }
                 else if (randomValue >= 0.65f && randomValue <= 0.75f)
                 {
                     somethingSpawned = true;
-                    spawner.Spawn(SpawnType.Protection);
+                    spawner.Spawn(SpawnType.Bomb);
                 }
                 else if (randomValue >= 0.80f && randomValue <= 90f)
                 {
                     somethingSpawned = true;
-                    spawner.Spawn(SpawnType.Protection);
+                    spawner.Spawn(SpawnType.MaxHealth);
                 }
                 else if (randomValue >= 0.93f && randomValue <= 1f)
                 {
